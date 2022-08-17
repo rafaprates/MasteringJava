@@ -5,7 +5,9 @@ class Main {
 
     public static void main(String[] args) {
 
-        InputCalculator.inputThenPrintSumAndAverage();
+//        InputCalculator.inputThenPrintSumAndAverage();
+
+        System.out.println(LargestPrime.getLargestPrime(21));
 
     }
 
