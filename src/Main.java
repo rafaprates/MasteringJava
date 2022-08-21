@@ -1,3 +1,6 @@
+import Section_6_and_7_OOP.BillsBurger.DeluxeBurger;
+import Section_6_and_7_OOP.BillsBurger.Hamburger;
+import Section_6_and_7_OOP.BillsBurger.HealthyBurger;
 import Section_6_and_7_OOP.CarpetCostCalculator.Calculator;
 import Section_6_and_7_OOP.CarpetCostCalculator.Carpet;
 import Section_6_and_7_OOP.CarpetCostCalculator.Floor;
@@ -10,25 +13,25 @@ import Section_6_and_7_OOP.Polymorfism.Mitsubishi;
 class Main {
 
     public static void main(String[] args) {
-        Car car = new Car(8, "Base car");
-        System.out.println(car.startEngine());
-        System.out.println(car.accelerate());
-        System.out.println(car.brake());
+        Hamburger hamburger = new Hamburger("Basic", "Sausage", 3.56, "White");
+        hamburger.addHamburgerAddition1("Tomato", 0.27);
+        hamburger.addHamburgerAddition2("Lettuce", 0.75);
+        hamburger.addHamburgerAddition3("Cheese", 1.13);
+        System.out.println("Total Burger price is " + hamburger.itemizeHamburger());
 
-        Mitsubishi mitsubishi = new Mitsubishi(6, "Outlander VRX 4WD");
-        System.out.println(mitsubishi.startEngine());
-        System.out.println(mitsubishi.accelerate());
-        System.out.println(mitsubishi.brake());
+        System.out.println("\n");
 
-        Ford ford = new Ford(6, "Ford Falcon");
-        System.out.println(ford.startEngine());
-        System.out.println(ford.accelerate());
-        System.out.println(ford.brake());
+        HealthyBurger healthyBurger = new HealthyBurger("Bacon", 5.67);
+        healthyBurger.addHamburgerAddition1("Egg", 5.43);
+        healthyBurger.addHealthyAddition2("Lentils", 3.41);
+        System.out.println("Total Healthy Burger price is  " + healthyBurger.itemizeHamburger());
 
-        Holden holden = new Holden(6, "Holden Commodore");
-        System.out.println(holden.startEngine());
-        System.out.println(holden.accelerate());
-        System.out.println(holden.brake());
+        System.out.println("\n");
+
+        DeluxeBurger db = new DeluxeBurger();
+        db.addHamburgerAddition3("Should not do this", 50.53);
+        System.out.println("Total Deluxe Burger price is " + db.itemizeHamburger());
+
 
     }
 
