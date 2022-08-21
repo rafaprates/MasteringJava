@@ -2,9 +2,6 @@ import Section_6_and_7_OOP.CarpetCostCalculator.Calculator;
 import Section_6_and_7_OOP.CarpetCostCalculator.Carpet;
 import Section_6_and_7_OOP.CarpetCostCalculator.Floor;
 
-import java.util.*;
-import java.io.*;
-
 class Main {
 
     public static void main(String[] args) {
