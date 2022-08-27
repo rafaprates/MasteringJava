@@ -9,29 +9,48 @@ import Section_6_and_7_OOP.Polymorfism.Car;
 import Section_6_and_7_OOP.Polymorfism.Ford;
 import Section_6_and_7_OOP.Polymorfism.Holden;
 import Section_6_and_7_OOP.Polymorfism.Mitsubishi;
+import Section_8_Arrays_Lists_Autoboxing_Unboxing.Playlist.Album;
+import Section_8_Arrays_Lists_Autoboxing_Unboxing.Playlist.Song;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 class Main {
-
     public static void main(String[] args) {
-        Hamburger hamburger = new Hamburger("Basic", "Sausage", 3.56, "White");
-        hamburger.addHamburgerAddition1("Tomato", 0.27);
-        hamburger.addHamburgerAddition2("Lettuce", 0.75);
-        hamburger.addHamburgerAddition3("Cheese", 1.13);
-        System.out.println("Total Burger price is " + hamburger.itemizeHamburger());
+        ArrayList<Album> albums = new ArrayList<>();
 
-        System.out.println("\n");
+        Album album = new Album("Stormbringer", "Deep Purple");
+        album.addSong("Stormbringer", 4.6);
+        album.addSong("Love don't mean a thing", 4.22);
+        album.addSong("Holy man", 4.3);
+        album.addSong("Hold on", 5.6);
+        album.addSong("Lady double dealer", 3.21);
+        album.addSong("You can't do it right", 6.23);
+        album.addSong("High ball shooter", 4.27);
+        album.addSong("The gypsy", 4.2);
+        album.addSong("Soldier of fortune", 3.13);
+        albums.add(album);
 
-        HealthyBurger healthyBurger = new HealthyBurger("Bacon", 5.67);
-        healthyBurger.addHamburgerAddition1("Egg", 5.43);
-        healthyBurger.addHealthyAddition2("Lentils", 3.41);
-        System.out.println("Total Healthy Burger price is  " + healthyBurger.itemizeHamburger());
+        album = new Album("For those about to rock", "AC/DC");
+        album.addSong("For those about to rock", 5.44);
+        album.addSong("I put the finger on you", 3.25);
+        album.addSong("Lets go", 3.45);
+        album.addSong("Inject the venom", 3.33);
+        album.addSong("Snowballed", 4.51);
+        album.addSong("Evil walks", 3.45);
+        album.addSong("C.O.D.", 5.25);
+        album.addSong("Breaking the rules", 5.32);
+        album.addSong("Night of the long knives", 5.12);
+        albums.add(album);
 
-        System.out.println("\n");
-
-        DeluxeBurger db = new DeluxeBurger();
-        db.addHamburgerAddition3("Should not do this", 50.53);
-        System.out.println("Total Deluxe Burger price is " + db.itemizeHamburger());
-
+        LinkedList<Song> playList = new LinkedList<Song>();
+        albums.get(0).addToPlayList("You can't do it right", playList);
+        albums.get(0).addToPlayList("Holy man", playList);
+        albums.get(0).addToPlayList("Speed king", playList);  // Does not exist
+        albums.get(0).addToPlayList(9, playList);
+        albums.get(1).addToPlayList(3, playList);
+        albums.get(1).addToPlayList(2, playList);
+        albums.get(1).addToPlayList(24, playList);  // There is no track 24
 
     }
 

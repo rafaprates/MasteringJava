@@ -21,15 +21,6 @@ public class Bank {
 
     public boolean addCustomer(String branchName, String costumerName, double initialTransaction) {
         Branch branch = findBranch(branchName);
-//        ArrayList<Customer> branchCustomers = branch.getCustomers();
-//
-//        for (int i=0; i<branchCustomers.size(); i++) {
-//            if (branchCustomers.get(i).getName().equals(costumerName)) {
-//                // Already exists
-//                return false;
-//            }
-//        }
-
         if (branch != null) {
             return branch.newCustomer(costumerName, initialTransaction);
         }
