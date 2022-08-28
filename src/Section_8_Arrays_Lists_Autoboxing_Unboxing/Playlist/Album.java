@@ -16,28 +16,20 @@ public class Album {
     }
 
     public boolean addSong(String title, double duration) {
+
         if (findSong(title) != null) {
-            System.out.println("Song " + title + " already exists.");
-            return songs.add(new Song(title, duration));
+            return false;
         }
-        // System.out.println("Song " + title + " does not exist.");
-        return false;
+
+        songs.add(new Song(title, duration));
+        return true;
     }
 
     private Song findSong(String title) {
-        System.out.println("findSong(" + title + ")");
-        System.out.println(songs.size());
-
-        if (songs.isEmpty()) {
-            return null;
-        }
 
         for(int i = 0; i < songs.size(); i++) {
-            System.out.println("Não entrou no loop");
             String currentSongTitle = songs.get(i).getTitle();
-            System.out.println("Current song title " + currentSongTitle.toUpperCase());
             if (currentSongTitle.equals(title)) {
-                System.out.println("Song " + title + " already exists.");
                 return songs.get(i);
             }
         }
@@ -45,25 +37,32 @@ public class Album {
     }
 
     public boolean addToPlayList(int albumTrackNumber, LinkedList<Song> playList) {
+//        System.out.println("Album " + name + " is " + songs.size()  + " songs long.");
+//        System.out.println("Track number is " + albumTrackNumber);
+//        System.out.println("Get song at index " + (albumTrackNumber - 1));
+//        System.out.println("\n");
+
         if (albumTrackNumber < 1 || albumTrackNumber > songs.size()) {
-            System.out.println("trackNumber is out of bounds");
+//            System.out.println("trackNumber is out of bounds");
             return false;
         }
+
+//        System.out.println(songs.get(albumTrackNumber-1).getTitle());
         Song songToAdd = songs.get(albumTrackNumber - 1);
         if(findSong(songToAdd.getTitle()) != null) {
-            playList.add(albumTrackNumber - 1, songToAdd);
+            playList.add(songToAdd);
             return true;
         }
+//        System.out.println("Song does not exist.");
         return false;
     }
 
     public boolean addToPlayList(String songName, LinkedList<Song> playlist) {
-        System.out.println("Adding song to playlist..");
         Song songToAdd = findSong(songName);
         if (songToAdd != null) {
-            System.out.println("Song " + songToAdd.getTitle() + " was added to playlist.");
             return playlist.add(songToAdd);
         }
+//        System.out.println("Song " + songName + " does not exist.");
         return false;
     }
 }

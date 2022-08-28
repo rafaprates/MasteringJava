@@ -16,6 +16,6 @@ public class Song {
 
     @Override
     public String toString() {
-       return "title: " + title;
+       return title + ": " + duration;
     }
 }
